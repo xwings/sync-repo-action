@@ -1,0 +1,15 @@
+name: "test"
+on:
+  push:
+
+jobs:
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: ./
+      with:
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        target_repo: gitee 

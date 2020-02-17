@@ -1,0 +1,16 @@
+# action.yml
+name: 'Sync Repo On Time'
+description: 'Sync current repository to others'
+inputs:
+  ssh_private_key:  # id of input
+    description: target repos's ssh private key
+    required: true
+  target_repo:
+    description: target repo url or its name, like gitee
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.ssh_private_key }}
+    - ${{ inputs.target_repo }}
