@@ -20,6 +20,7 @@ setup_ssh() {
 
 push_code() {
     git remote add target "$target_repo"
+    git config --global --add safe.directory /github/workspace
     git push target "$GITHUB_REF:$GITHUB_REF" -f
 }
 
